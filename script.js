@@ -34,17 +34,26 @@ while (executando) {
             let nome = readline.question("Nome: ");
             let idade = Number(readline.question("Idade: "));
             let nota = Number(readline.question("Nota: "));
-
+            
+            console.log("\nUsuário cadastrado com sucesso!");
             // TODO:
             // Verificar se a nota está entre 0 e 10
+            if(nota < 0 || nota > 10) {
+                console.log("Nota Inválida ! Digite uma nota entre 0 e 10.");
+                break;
 
+            }
             // TODO:
             // Criar um objeto aluno
+            let aluno = {
+                nome: nome,
+                idade: idade,
+                nota: nota
+            };
 
             // TODO:
             // Adicionar o aluno ao array
-
-
+            alunos.push(aluno);
             break;
 
 
@@ -57,16 +66,28 @@ while (executando) {
 
             // TODO:
             // Verificar se existem alunos cadastrados
+            if (alunos.length === 0) {
+                console.log("Nenhum aluno cadastrado.");
+                break;
+            }
 
             // TODO:
             // Percorrer o array utilizando FOR
+            for (let i = 0; i < alunos.length; i++) {
+                let aluno = alunos[i];
+                console.log(`
+                    --------------------
+                    Nome: ${aluno.nome}
+                    Idade: ${aluno.idade}
+                    Nota: ${aluno.nota}
+                    --------------------`);
+            }
 
             // Mostrar:
             // Nome
             // Idade
             // Nota
-
-
+            
             break;
 
 
@@ -84,6 +105,18 @@ while (executando) {
             // TODO:
             // Percorrer o array procurando
             // pelo nome informado.
+            for (let i = 0; i < alunos.length; i++) {
+                let aluno = alunos[i];
+                if (aluno.nome === nomeBusca) {
+                    console.log(`
+                        Nome: ${aluno.nome}
+                        Idade: ${aluno.idade}
+                        Nota: ${aluno.nota}
+                        --------------------`);
+                    alunoEncontrado = true;
+                    break;
+                }
+            }
 
             // Se encontrar:
             // - Mostrar os dados
@@ -107,19 +140,25 @@ while (executando) {
 
             // TODO:
             // Percorrer todos os alunos
-
-            // Se nota >= 7
-            //    Aprovado
-            //
-            // Senão se nota >= 5
-            //    Recuperacao
-            //
-            // Senão
-            //    Reprovado
-
+            for (let i = 0; i < alunos.length; i++) {
+                let aluno = alunos[i];
+                console.log(`
+                    Nome: ${aluno.nome}
+                    Idade: ${aluno.idade}
+                    Nota: ${aluno.nota}
+                    --------------------`);
+                if (aluno.nota >= 7) {
+                    console.log("Situação: Aprovado");
+                } else if (aluno.nota >= 5) {
+                    console.log("Situação: Recuperação");
+                } else {
+                    console.log("Situação: Reprovado");
+                }
+                console.log("--------------------");
+            }
 
             break;
-
+            
 
         // --------------------------------
         // SAIR
