@@ -69,6 +69,8 @@ while (executando) {
             if (alunos.length === 0) {
                 console.log("Nenhum aluno cadastrado.");
                 break;
+            } else {
+                console.log(`Total de alunos cadastrados: ${alunos.length}`);
             }
 
             // TODO:
